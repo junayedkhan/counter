@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Home from './components/Home';
+import Cart from './components/Cart';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import "../src/components/main.css"
+import Header from './components/Header';
+
 
 function App() {
+
+  const [count, setCount] = useState( 0 )
+  const handleClick = () => {
+    setCount(prevCount => prevCount + 1)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      
+      <BrowserRouter>
+        <Header count={count} />
+        <Routes>
+          <Route path="/" element={<Home value={handleClick} />} />
+          <Route path="/cart" element={<Cart value={handleClick} />} />
+        </Routes>
+      </BrowserRouter>
+
   );
 }
 
