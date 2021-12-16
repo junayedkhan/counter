@@ -12,19 +12,18 @@ const Cart = () => {
 
     console.log(cartItems)
 
-
     return (
         <div className="container">
             {cartItems.length === 0 ? 
-                <div class="alert alert-danger text-center" role="alert">
+                <div className="alert alert-danger text-center" role="alert">
                     Cart is emapty
                 </div>
                 : 
                 <>
-                <table class="table">
+                <table className="table table-responsive">
                     <thead>
                         <tr>
-                            <th scope="col">DATE</th>
+                            <th scope="col">TIME</th>
                             <th scope="col">TITLE</th>
                             <th scope="col">QUANTITY</th>
                             <th scope="col">PRICE</th>
@@ -39,17 +38,17 @@ const Cart = () => {
                                 <td>{item.title}</td>
                                 <td>
                                     <button className='btn btn-success' onClick={() => dispatch(increment(item.productId))}>
-                                        <i class="fas fa-plus"></i>
+                                        <i className="fas fa-plus"></i>
                                     </button>
                                         <span className='p-3'>{item.quantity}</span>
                                     <button className='btn btn-success' onClick={() => dispatch(decrement(item.productId))}>
-                                        <i class="fas fa-minus"></i>
+                                        <i className="fas fa-minus"></i>
                                     </button>
                                 </td>
                                 <td>{item.price}$</td>
                                 <td>
                                     <button className='btn btn-danger' onClick={() => dispatch(remove(item.productId))}>
-                                        <i class="fas fa-trash-alt"></i>
+                                        <i className="fas fa-trash-alt"></i>
                                     </button>
                                 </td>
                             </tr>

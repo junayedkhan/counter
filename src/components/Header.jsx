@@ -8,15 +8,15 @@ const Header = () => {
 
     return (
         <div className="container-fluid">
-            <header className='header'>
+            <header className='header border-bottom border-2'>
                 <Link to="/" >
                     <h3>shop</h3>
                 </Link>
                 <div className='cart_box'>
                     <Link to="/cart" >
-                        <button type="button" class="btn btn-primary position-relative">
+                        <button type="button" className="btn btn-primary position-relative">
                             <i className="fas fa-cart-plus" style={{color: "#fff"}}></i>
-                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                            <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success">
                                 {cartData.length}
                             </span>
                         </button>

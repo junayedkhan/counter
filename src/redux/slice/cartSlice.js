@@ -35,7 +35,7 @@ export const cartSlice = createSlice({
         increment: (state, {payload}) => {
             const data = state.cartItems.map((val) => {
                 if(val.productId === payload){
-                    return { ...val,quantity: val.quantity+1 }
+                    return { ...val, quantity: val.quantity+1 }
                 }
                 return val
             })
