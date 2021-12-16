@@ -1,29 +1,26 @@
-import React, {useState} from 'react';
+import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './components/Home';
 import Cart from './components/Cart';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "../src/components/main.css"
 import Header from './components/Header';
-
+import { Provider } from 'react-redux';
+import store from "./redux/store"
 
 function App() {
 
-  const [count, setCount] = useState( 0 )
-  const handleClick = () => {
-    setCount(prevCount => prevCount + 1)
-  }
 
-  return (
-      
+  return ( 
       <BrowserRouter>
-        <Header count={count} />
-        <Routes>
-          <Route path="/" element={<Home value={handleClick} />} />
-          <Route path="/cart" element={<Cart value={handleClick} />} />
-        </Routes>
+        <Provider store={store}>
+          <Header/>
+          <Routes>
+            <Route path="/" element={<Home/>} />
+            <Route path="/cart" element={<Cart/>} />
+          </Routes>
+        </Provider>
       </BrowserRouter>
-
   );
 }
 
